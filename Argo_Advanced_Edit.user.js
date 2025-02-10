@@ -4,7 +4,7 @@
 // @version      1.1
 // @description  Add a button beside Containers to change the state to inactive.
 // @author       macrobso@
-// @match        https://aws.argo.ocean-wave.aws.a2z.com/*
+// @match        https://*
 // @grant        none
 // ==/UserScript==
 
