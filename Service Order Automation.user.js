@@ -4,8 +4,10 @@
 // @version      0.1
 // @description  Automate actions on service orders page
 // @author       macrobso
-// @match        https://t.corp.amazon.com/*
-// @match        https://mobility.amazon.com/part/search?search_type=all&search_string=*
+// @match        https://example.com/*
+// @match        https://example.com/search?search_type=all&search_string=*
+// @downloadURL  https://example.com/downloadURL.js?download=true
+// @updateURL    https://example.com/updateURL.js?download=true
 // @grant        none
 // ==/UserScript==
 
@@ -61,7 +63,7 @@ ${serialID}
     // Function to fetch the Serial ID and ticket title from the timetable page
     function fetchSerialIDAndTitle() {
         // Replace this with the URL of the timetable webpage
-        const timetableURL = 'https://mobility.amazon.com/part/search';
+        const timetableURL = 'https://mobility.example.com/part/search';
 
         // Make an HTTP request to fetch the timetable page content
         fetch(timetableURL)
