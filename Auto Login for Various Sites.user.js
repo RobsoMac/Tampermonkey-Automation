@@ -2,16 +2,15 @@
 // @name         Auto Login for Various Sites
 // @namespace    http://tampermonkey.net/
 // @version      0.3.4
-// @description  Automatically clicks login buttons for Slack, Austin, Argo, and KNet.
+// @description  Automatically clicks login buttons for Slack, Example1, Example2, and Example3.
 // @author       macrobso@
 // @match        https://*.slack.com/?redir=*
 // @match        https://*.slack.com/ssb/signin_redirect*
-// @match        https://austin-ehs-prod-amzn-web-services.auth.us-east-1.amazoncognito.com/*
-// @match        https://aws.argo.ocean-wave.aws.a2z.com/*
-// @match        https://knet.csod.com/*
-// @match        https://knet2.csod.com/*
-// @match        https://us-east-1.quicksight.aws.amazon.com/sn/auth/signin/*
-// @match        https://scm-hw-eng-clientv2-prod.auth.us-west-2.amazoncognito.com/*
+// @match        https://example1.com/*
+// @match        https://example2.com/*
+// @match        https://example3.com/*
+// @match        https://example4.com/*
+// @match        https://example5.com/*
 // @icon         https://www.google.com/s2/favicons?domain=slack.com
 // @grant        window.close
 // @run-at       document-start
@@ -53,45 +52,45 @@ function handlePageChange() {
         }
     }
 
-    // Austin EHS login
-    if (window.location.href.includes('austin-ehs-prod-amzn-web-services.auth.us-east-1.amazoncognito.com')) {
-        const amazonButton = document.querySelector('input[value="Amazon"]');
-        if (amazonButton) {
-            amazonButton.click();
+    // Example1 login
+    if (window.location.href.includes('example1.com')) {
+        const example1Button = document.querySelector('input[value="Example1"]');
+        if (example1Button) {
+            example1Button.click();
         }
     }
 
-    // SCM HW ENG Client login
-    if (window.location.href.includes('scm-hw-eng-clientv2-prod.auth.us-west-2.amazoncognito.com')) {
+    // Example2 login
+    if (window.location.href.includes('example2.com')) {
         setTimeout(() => {
-            const scmLoginButton = document.querySelector('input[type="button"][value="Amazon"]');
-            if (scmLoginButton) {
-                scmLoginButton.click();
+            const example2LoginButton = document.querySelector('input[type="button"][value="Example2"]');
+            if (example2LoginButton) {
+                example2LoginButton.click();
             }
         }, 2000); // Adjust the timeout as needed
     }
 
-    // Argo AWS login
-    if (window.location.href.includes('aws.argo.ocean-wave.aws.a2z.com')) {
-        const supplyChainButton = document.querySelector('button#federated\\ SignIn');
-        if (supplyChainButton) {
-            supplyChainButton.click();
+    // Example3 login
+    if (window.location.href.includes('example3.com')) {
+        const example3Button = document.querySelector('button#federated\\ SignIn');
+        if (example3Button) {
+            example3Button.click();
         }
     }
 
-    // KNet login
-    if (window.location.href.includes('knet.csod.com')) {
-        const knetLoginButton = document.querySelector('u[style="font-size: 14px;"]');
-        if (knetLoginButton && knetLoginButton.innerText.includes('Login using Single Sign On')) {
-            knetLoginButton.click();
+    // Example4 login
+    if (window.location.href.includes('example4.com')) {
+        const example4LoginButton = document.querySelector('u[style="font-size: 14px;"]');
+        if (example4LoginButton && example4LoginButton.innerText.includes('Login using Single Sign On')) {
+            example4LoginButton.click();
         }
     }
 
-    // KNet2 login
-    if (window.location.href.includes('knet2.csod.com')) {
-        const knetLoginButton = document.querySelector('u[style="font-size: 14px;"]');
-        if (knetLoginButton && knetLoginButton.innerText.includes('Login using Single Sign On')) {
-            knetLoginButton.click();
+    // Example5 login
+    if (window.location.href.includes('example5.com')) {
+        const example5LoginButton = document.querySelector('u[style="font-size: 14px;"]');
+        if (example5LoginButton && example5LoginButton.innerText.includes('Login using Single Sign On')) {
+            example5LoginButton.click();
         }
     }
 }
