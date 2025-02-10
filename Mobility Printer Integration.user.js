@@ -2,12 +2,12 @@
 // @name         Mobility Printer Integration
 // @namespace    http://tampermonkey.net/
 // @version      3.1
-// @description  Add a Print 🖨️ button to interact with the AWS Logistics Print Server on localhost:3000.
+// @description  Add a Print 🖨️ button to interact with the Print Server on localhost:3000.
 // @author       macrobso@
 // @icon         https://w7.pngwing.com/pngs/938/779/png-transparent-label-printer-brother-industries-printing-printer-electronics-label-bluetooth.png
-// @include      https://mobility.amazon.com/part/search?*
-// @downloadURL  https://drive.corp.amazon.com/documents/macrobso@/Mobility%20Printer%20Integration.js?download=true
-// @updateURL    https://drive.corp.amazon.com/documents/macrobso@/Mobility%20Printer%20Integration.js?download=true
+// @include      https://mobility.example.com/part/search?*
+// @downloadURL  https://example.com/downloadURL.js?download=true
+// @updateURL    https://example.com/updateURL.js?download=true
 // @grant        GM_xmlhttpRequest
 // ==/UserScript==
 
@@ -134,9 +134,9 @@
     printerInputBox.innerHTML = `
         <label for="printer-ip">Printer IP/Name:</label>
         <input id="printer-ip" type="text" placeholder="Enter Printer IP" style="margin-left: 1px;" />
-        <button id="save-printer-ip" style="background-color: rgb(49, 70, 94); border: 1px solid rgb(255, 255, 255); height: 30px; color: white; padding: 4px 12px; text-align: center; text-decoration: none; display: inline-block; font-size: 12px; font-weight: bold; margin: 0px; cursor: pointer; border-radius: 6px; transition: background-color 0.3s, box-shadow 0.3s; box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px;">Save</button>
+        <button id="save-printer-ip" style="background-color: rgb(49, 70, 94); border: 1px solid rgb(255, 255, 255); height: 30px; color: white; padding: 4px 12px; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; font-weight: bold; margin: 2px; cursor: pointer; border-radius: 6px; transition: background-color 0.3s, box-shadow 0.3s; box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 5px;">Save</button>
     `;
-    document.querySelector('a[href="https://w.amazon.com/bin/view/DataCenterSystems/Mobility/Project/SMASHSearchAPI/NewGuide/"]').insertAdjacentElement('afterend', printerInputBox);
+    document.querySelector('a[href="https://example.com"]').insertAdjacentElement('afterend', printerInputBox);
 
     document.getElementById("printer-ip").value = localStorage.getItem(printerKey) || "";
     document.getElementById("save-printer-ip").addEventListener("click", () => {
@@ -191,11 +191,11 @@
         const serverRunning = await checkServerStatus();
         if (!serverRunning) {
             const popup = document.createElement("div");
-            popup.style = "position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid black; z-index: 1000; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); border-radius: 10px;";
+            popup.style = "position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid black; z-index: 1000; box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);";
             popup.innerHTML = `
                 <h2 style="margin-top: 0;">Print Server Not Running</h2>
                 <p>The local print server is not running. Please download and run the print_server executable.</p>
-                <a href="https://drive.corp.amazon.com/documents/macrobso@/print_server.exe" download style="color: blue; text-decoration: underline;">Download Print Server</a>
+                <a href="https://example.com/documents/macrobso@/print_server.exe" download style="color: blue; text-decoration: underline;">Download Print Server</a>
                 <div style="margin-top: 10px;">
                     <input type="checkbox" id="dont-show-again" />
                     <label for="dont-show-again">Don't show this again</label>
