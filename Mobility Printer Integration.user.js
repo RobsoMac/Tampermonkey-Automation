@@ -5,7 +5,7 @@
 // @description  Add a Print 🖨️ button to interact with the Print Server on localhost:3000.
 // @author       macrobso@
 // @icon         https://w7.pngwing.com/pngs/938/779/png-transparent-label-printer-brother-industries-printing-printer-electronics-label-bluetooth.png
-// @include      https://mobility.example.com/part/search?*
+// @include      https://example.com/search?*
 // @downloadURL  https://example.com/downloadURL.js?download=true
 // @updateURL    https://example.com/updateURL.js?download=true
 // @grant        GM_xmlhttpRequest
