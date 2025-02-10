@@ -2,17 +2,17 @@
 // @name         SIM Ticketing TPVR
 // @version      1.3
 // @description  Two Person Verification Rule add on to SIM Ticketing
-// @author       malarse
-// @match        https://t.corp.amazon.com/*
+// @author       macrobso@
+// @match        https://t.example.com/*
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
 // @require      https://gist.github.com/raw/2625891/waitForKeyElements.js
-// @downloadURL  https://drive.corp.amazon.com/personal/malarse/Device%20Farm/SIM/TPVR/Sim-Ticketing_TPVR.user.js?download=true
-// @updateURL    https://drive.corp.amazon.com/personal/malarse/Device%20Farm/SIM/TPVR/Sim-Ticketing_TPVR.user.js?download=true
+// @downloadURL  https://example.com/downloadURL.js?download=true
+// @updateURL    https://example.com/updateURL.js?download=true
 // @grant        none
 // globals jQuery, $, waitForKeyElements */
 // ==/UserScript==
 
-let my_alias = "macrobso@";
+let my_alias = "YOUR ALIAS@";
 
 function main(){
   let communication = document.getElementsByClassName("sim-commentCardPrimary--right");
@@ -37,7 +37,7 @@ function addCommunication(event){
   document.getElementById("sim-communicationActions--createComment").focus();
   document.getElementById("sim-communicationActions--createComment").value =text;
   var script = document.createElement('script');
-  script.innerHTML = `document.getElementById("sim-communicationActions--createComment").currentTarget = document.getElementById("sim-communicationActions--createComment");  document.getElementById("sim-communicationActions--createComment").`+Object.getOwnPropertyNames(document.getElementById("sim-communicationActions--createComment"))[1]+`.onChange( document.getElementById("sim-communicationActions--createComment"))`;
+  script.innerHTML = `document.getElementById("sim-communicationActions--createComment").currentTarget = document.getElementById("sim-communicationActions--createComment");  document.getElementById("sim-communicationActions--createComment").dispatchEvent(new Event('input'));`;
   document.head.append(script);
   let submitButton = document.getElementsByClassName("awsui-button awsui-button-variant-primary awsui-hover-child-icons")[4];
   if (submitButton.innerText === "Post to Worklog" || submitButton.innerText === "Post to Correspondence"){
@@ -50,7 +50,7 @@ function addCommunication(event){
 function createStyleSheet(){
   var customStyleSheet = document.createElement("link");
   customStyleSheet.rel="stylesheet"
-  customStyleSheet.href="https://drive-render.corp.amazon.com/view/malarse@/Device%20Farm/SIM/TPVR/tpvr_styling.css";
+  customStyleSheet.href="https://example.com/SIM/TPVR/tpvr_styling.css";
   if (document.head){
     document.head.appendChild(customStyleSheet);
   }
@@ -67,5 +67,4 @@ function getAlias(){
   createStyleSheet();
   waitForKeyElements(".sim-navDropdown--user", getAlias);
   waitForKeyElements(".sim-commentCardPrimary--right", main);
-    // Your code here...
 })();
